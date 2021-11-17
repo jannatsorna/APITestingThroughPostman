@@ -1,0 +1,150 @@
+{
+	"info": {
+		"_postman_id": "58dd61cf-80c3-4519-8408-d47a004b5995",
+		"name": "Student",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Create Student",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"var jsonData = pm.response.json()\r",
+							"pm.environment.set(\"id\",jsonData.id)\r",
+							"\r",
+							"pm.test(\"Status code is 201\", function () {\r",
+							"    pm.response.to.have.status(201);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"First Name Validation\", function () {\r",
+							"    pm.expect(jsonData.first_name).to.eql(\"Jannat\");\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Middle Name Validation\", function () {\r",
+							"    pm.expect(jsonData.middle_name).to.eql(\"Sorna\");\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Last Name Validation\", function () {\r",
+							"    pm.expect(jsonData.last_name).to.eql(\"123\");\r",
+							"});\r",
+							"\r",
+							"pm.test(\"First Name Validation (empty)\", function(){\r",
+							"    pm.expect(jsonData.first_name).to.eql(\" \");\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Date of birth validation\", function(){\r",
+							"    pm.expect(jsonData.date_of_birth).to.eql(\"31/01/1997\");\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Date of birth validation\", function(){\r",
+							"    pm.expect(jsonData.date_of_birth).to.eql(\"31/01/2021\");\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Date of birth validation\", function(){\r",
+							"    pm.expect(jsonData.date_of_birth).to.eql(\" \");\r",
+							"});\r",
+							"\r",
+							"/*pm.test(\"Date of birth validation\", function(){\r",
+							"    pm.expect(jsonData.date_of_birth).to.eql(\"12345678910\");\r",
+							"});*/\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"first_name\": \"Jannat\",\r\n  \"middle_name\": \"Sorna\",\r\n  \"last_name\": \"123\",\r\n  \"date_of_birth\": \"31/01/2021\"\r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseUrl}}/api/studentsDetails",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"api",
+						"studentsDetails"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Student",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/api/studentsDetails",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"api",
+						"studentsDetails"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update Student",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n   \"id\":{{id}},\r\n   \"first_name\": \"Jannat\",\r\n   \"middle_name\": \"123\",\r\n   \"last_name\": \"null\",\r\n    \"date_of_birth\": \"29/12/1997\"\r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseUrl}}/api/studentsDetails/{{id}}",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"api",
+						"studentsDetails",
+						"{{id}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Specific Student",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/api/studentsDetails/{{id}}",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"api",
+						"studentsDetails",
+						"{{id}}"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
