@@ -1,5 +1,5 @@
 # APITestingThroughPostman
-Tested API by using Postman & Report is generated through Newman
+Tested API by using Postman & Report is generated through Newman.
 1.set environment
 2.dynamic url
 # Method
