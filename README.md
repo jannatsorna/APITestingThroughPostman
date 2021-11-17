@@ -1,12 +1,13 @@
 # APITestingThroughPostman
-Tested API by using Postman &amp; Report is generated through Newman
+Tested API by using Postman & Report is generated through Newman
+1.set environment
+2.dynamic url
+# Method
+1.GET: Get Student
+2.POST: Create Student
+3.PUT: Update Student
+4.GET: Get Specific Student
 
-1.GET Method: Get Student
-2.POST Method: Create Student
-3.PUT Method: Update Student
-4.GET Method: Get Specific Student
-
-# set environment
-# Dynamic URL
+ 
 
 
